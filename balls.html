@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<style>
+	.circle{
+		height: 100px;
+		width: 100px;
+		border-radius: 50px;
+		position: absolute;
+		background: red;
+		transition: 1s;
+	}
+
+	.btn{
+		height: 60px;
+		width: 200px;
+		position: absolute;
+	}
+	.win{
+		left: 750px;
+		top: 300px;
+		position: absolute;
+
+		width: 400px;
+		height: 300px;
+		background: green;
+		border-radius: 20px;
+		display: none;
+	}
+	.loos{
+		left: 750px;
+		top: 300px;
+		position: absolute;
+
+		width: 400px;
+		height: 300px;
+		background: red;
+		border-radius: 20px;
+		display: none;
+	}
+</style>
+<body>
+<h1 style="left: 890px; top: 30px;position: absolute;">Очки: <span class="score">0</span></h1>
+<button class="btn" style="left: 860px; top: 100px;"><h2>Начать играть</h2></button>
+
+<div class="win"><h1 style="left: 150px;top: 100px;position: absolute;">Winner!</h1></div>
+<div class="loos"><h1 style="left:150px;top: 100px;position: absolute;">Losser!</h1></div>
+
+<div class="circle" style="left: 100px; top: 100px;"></div>
+<div class="circle" style="left: 150px; top: 400px;"></div>
+<div class="circle" style="left: 1400px; top: 0px;"></div>
+<div class="circle" style="left: 300px; top: 0px;"></div>
+<div class="circle" style="left: 1200px; top: 150px;"></div>
+<div class="circle" style="left: 50px; top: 600px;"></div>
+<div class="circle" style="left: 700px; top: 700px;"></div>
+<div class="circle" style="left: 500px; top: 400px;"></div>
+<div class="circle" style="left: 1000px; top: 500px;"></div>
+<div class="circle" style="left: 800px; top: 300px;"></div>
+<div class="circle" style="left: 650px; top: 150px;"></div>
+<div class="circle" style="left: 1500px; top: 650px;"></div>
+<div class="circle" style="left: 1800px; top: 400px;"></div>
+<div class="circle" style="left: 1400px; top: 400px;"></div>
+<div class="circle" style="left: 1100px; top: 800px;"></div>
+<div class="circle" style="left: 1600px; top: 250px;"></div>
+
+
+
+<script>
+let score = 0;
+
+let circle = document.querySelectorAll(".circle");
+let button = document.querySelector(".btn");
+let win = document.querySelector(".win");
+let loos = document.querySelector(".loos");
+	
+
+	button.onclick = function(){
+		for (let i=0;i<16;i=i+1 ){
+		circle[i].style.display = "block";
+		circle[0].style.left = "200px";
+		circle[0].style.top = "200px";
+
+		circle[1].style.left = "750px";
+		circle[1].style.top = "400px";
+
+		circle[2].style.left = "1400px";
+		circle[2].style.top = "200px";
+
+		circle[3].style.left = "300px";
+		circle[3].style.top = "400px";
+
+		circle[4].style.left = "1100px";
+		circle[4].style.top = "150px";
+
+		circle[5].style.left = "400px";
+		circle[5].style.top = "50px";
+
+		circle[6].style.left = "700px;";
+		circle[6].style.top = "100px";
+
+		circle[7].style.left = "400px";
+		circle[7].style.top = "400px";
+
+		circle[8].style.left = "900px";
+		circle[8].style.top = "700px";
+
+		circle[9].style.left = "800px";
+		circle[9].style.top = "500px";
+
+		circle[10].style.left = "750px";
+		circle[10].style.top = "250px";
+
+		circle[11].style.left = "1300px";
+		circle[11].style.top = "700px";
+
+		circle[12].style.left = "1800px";
+		circle[12].style.top = "200px";
+
+		circle[13].style.left = "1500px";
+		circle[13].style.top = "550px";
+
+		circle[14].style.left = "1000px";
+		circle[14].style.top = "800px";
+
+		circle[15].style.left = "1600px";
+		circle[15].style.top = "600px";
+		}
+	}
+
+	function timer(){
+			loos.style.display = "block";
+			for (let i=0;i<16;i=i+1 ){
+				circle[i].style.display = "none";
+			}
+		}
+	setTimeout (timer ,10000);
+
+
+	for (let i=0;i<16;i=i+1 ){
+		circle[i].onclick = function(){
+			circle[i].style.display = "none";
+			score = score + 1;
+			document.querySelector(".score").innerHTML = score;
+			if (score == 16){
+				win.style.display = "block";
+			}	
+		}
+	}
+
+
+
+
+
+</script>
+</body>
+</html>

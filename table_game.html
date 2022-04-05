@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+
+		.boxs {
+			height: 100px;
+			width: 100px;
+			background-color: green;
+			border: solid;
+			position: absolute;
+		}
+		.firsBox {
+			background-color: white;
+			background-image: url(duckl.png);
+		}
+		.win{
+			height: 300px;
+			width: 400px;
+			background: green;
+			position: absolute;
+			border-radius: 20px;
+			display: none;
+			left: 750px;
+			top: 300px;
+		}
+		.loos{
+			height: 300px;
+			width: 400px;
+			background: red;
+			position: absolute;
+			border-radius: 20px;
+			display: none;
+			left: 750px;
+			top: 300px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="content">
+		<h4 style="margin-left: 20px">Score: <span class="score">150</span></h4>
+		<img src="dice.png" class="bt" style="width: 100px; margin-left: 20px">		
+		<div class="boxs firsBox" style="margin-left: 20px">
+			<h4>finish</h4>
+		</div>
+
+		<div class="win">
+			<h1 style="left: 150px;top: 100px;position: absolute;">Winner!</h1>
+		</div>
+
+		<div class="loos">
+			<h1 style="left:150px;top: 100px;position: absolute;">Losser!</h1>
+		</div>
+
+		<div class="boxs" style="margin-left: 130px">1</div>
+		<div class="boxs" style="margin-left: 240px">2</div>
+		<div class="boxs" style="margin-left: 350px; background-color: red">3</div>
+				
+		<div class="boxs" style="margin-left: 460px">4</div> 
+		<div class="boxs" style="margin-left: 570px;background-color: yellow;">5</div>
+		<div class="boxs" style="margin-left: 680px;  background-color: red">6</div>
+		<div class="boxs" style="margin-left: 790px">7</div>
+
+		<div class="boxs" style="margin-left: 900px">8</div>
+		<div class="boxs" style="margin-left: 1010px;background-color: red" >9</div>
+		<div class="boxs" style="margin-left: 1120px;background-color: yellow;">10</div>
+		<div class="boxs" style="margin-left: 1230px">11</div>
+
+		<div class="boxs" style="margin-left: 1340px;background-color: red">12 
+			<p>иди назад на -5 клеток</p>
+		</div>
+		<div class="boxs" style="margin-left: 1340px; margin-top: 110px">13</div>
+		<div class="boxs" style="margin-left: 1340px; margin-top: 220px">14</div>	
+		<div class="boxs" style="margin-left: 1340px; margin-top: 330px;background-color: yellow;">15</div>		
+
+		<div class="boxs" style="margin-left: 1340px; margin-top: 440px">16</div>
+		<div class="boxs" style="margin-left: 1230px; margin-top: 440px">17</div>
+		<div class="boxs" style="margin-left: 1120px; margin-top: 440px">18</div>
+		<div class="boxs" style="margin-left: 1010px; margin-top: 440px">19</div>
+
+		<div class="boxs" style="margin-left: 900px; margin-top: 440px;background-color: yellow;">20</div>
+		<div class="boxs" style="margin-left: 790px; margin-top: 440px">21</div>
+		<div class="boxs" style="margin-left: 680px; margin-top: 440px">22</div>
+		<div class="boxs" style="margin-left: 570px; margin-top: 440px">23</div>
+
+		<div class="boxs" style="margin-left: 460px; margin-top: 440px">24</div>
+		<div class="boxs" style="margin-left: 350px; margin-top: 440px;background-color: yellow;">25</div>
+		<div class="boxs" style="margin-left: 240px; margin-top: 440px">26</div>
+		<div class="boxs" style="margin-left: 130px; margin-top: 440px">27</div>
+
+		<div class="boxs" style="margin-left: 20px; margin-top: 440px">28</div>
+		<div class="boxs" style="margin-left: 20px; margin-top: 330px">29</div>
+		<div class="boxs" style="margin-left: 20px; margin-top: 220px;background-color: yellow;">30</div>	
+		<div class="boxs" style="margin-left: 20px; margin-top: 110px">31</div>		
+
+		<!--последние дивы-->
+		<div class="boxs" style="margin-left: 130px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 240px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 350px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 460px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 570px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 680px; margin-top: 110px; background-color: green; opacity: 0"></div>
+
+	</div>	
+		
+</body>
+</html>
+	
+
+
+
+
+
+<script type="text/javascript">
+	let img = document.querySelector(".bt");
+	let win = document.querySelector(".win");
+	let loos = document.querySelector(".loos");
+	let box = document.querySelectorAll(".boxs");
+	let step = 0
+	let score = 150
+
+	img.onclick = function(){
+		let n = Math.random();
+    	let big = n * 6;
+    	let index = Math.round(big);
+    	box[step].style.backgroundImage = "none";
+
+    	alert("Вам выпало: " + index)
+    	step = step + index;
+
+
+    	if (step == 3) {
+    		alert("Упс, иди на шаг назад")
+    		step = 2
+    		score = score - 50;
+    		document.querySelector(".score").innerHTML = score;
+    		if (score==0){
+    			for (let i=0;i<38;i=i+1){
+    				box[i].style.display = "none";
+    				loos.style.display = "block"
+    				img.style.display = "none";
+				}
+    		}
+    	}
+
+
+    	if (step == 6){
+    		alert("Упс, иди на шаг назад")
+    		step = 5
+    		score = score - 50;
+    		document.querySelector(".score").innerHTML = score;
+    		if (score==0){
+    			for (let i=0;i<38;i=i+1){
+    				box[i].style.display = "none";
+    				loos.style.display = "block"
+    				img.style.display = "none";
+				}
+    		}
+
+    		if (score==0){
+    			for (let i=0;i<38;i=i+1){
+    				box[i].style.display = "none";
+    				loos.style.display = "block"
+    				img.style.display = "none";
+				}
+    		}
+    	}
+
+
+
+    	if (step == 9){
+    		alert("Упс, иди на шаг назад")
+    		step = 8
+    		score = score - 50;
+    		document.querySelector(".score").innerHTML = score;
+    		if (score==0){
+    			for (let i=0;i<38;i=i+1){
+    				box[i].style.display = "none";
+    				loos.style.display = "block"
+    				img.style.display = "none";
+				}
+    		}
+    	}
+
+
+
+    	if (step == 12){
+    		alert("Упс, иди на 5 шагов назад")
+    		step = 7
+    		score = score - 50;
+    		document.querySelector(".score").innerHTML = score;
+    		if (score==0){
+    			for (let i=0;i<38;i=i+1){
+    				box[i].style.display = "none";
+    				loos.style.display = "block"
+    				img.style.display = "none";
+				}
+    		}
+    	}
+
+
+
+    	if (step==5){
+    		alert("Удача! Иди на 3 шага вперед и +50 очков")
+    		score = score + 50;
+    		document.querySelector(".score").innerHTML = score;
+    		step = 8
+    	}
+
+
+
+    	if (step==10){
+    		alert("Удача! Иди на 3 шага вперед и +50 очков")
+    		score = score + 50;
+    		document.querySelector(".score").innerHTML = score;
+    		step = 13
+    	}
+
+
+
+    	if (step==15){
+    		alert("Удача! Иди на 3 шага вперед и +50 очков")
+    		score = score + 50;
+    		document.querySelector(".score").innerHTML = score;
+    		step = 18
+    	}
+
+
+
+    	if (step==20){
+    		alert("Удача! Иди на 3 шага вперед и +50 очков")
+    		score = score + 50;
+    		document.querySelector(".score").innerHTML = score;
+    		step = 23
+    	}
+    	
+
+
+    	if (step==25){
+    		alert("Удача! Иди на 3 шага вперед и +50 очков")
+    		score = score + 50;
+    		document.querySelector(".score").innerHTML = score;
+    		step = 28
+    	}
+
+
+
+    	if (step==30){
+    		alert("Удача! Иди на 1 шага вперед и +50 очков")
+    		score = score + 50;
+    		document.querySelector(".score").innerHTML = score;
+    		step = 31
+    	}
+
+
+    	if (step > 31){
+    			for (let i=0;i<38;i=i+1){
+    				box[i].style.display = "none";
+    				win.style.display = "block"
+    				img.style.display = "none";
+				}
+    		}
+    	box[step].style.backgroundImage = "url(duckl.png)";
+	}
+</script>

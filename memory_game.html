@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<style>
+	.div{
+		position: absolute;
+		height: 200px;
+		width: 350px;
+		transition: 2s;
+		border-radius: 15px;
+	}
+	.button{
+		border-radius: 10px;
+		width: 150px;
+		height: 70px;
+		border: none;
+	}
+	.task{
+		display: none;
+	}
+	.loos{
+		width: 500px;
+		height: 300px;
+		position: absolute;
+		left: 700px;
+		top: 300px;
+		background: red;
+		display: none;
+	}
+	.win{
+		width: 500px;
+		height: 300px;
+		position: absolute;
+		left: 700px;
+		top: 300px;
+		background: green;
+		display: none;
+	}
+	}
+</style>
+<body style="background-image: url(fon.jpg);background-size: cover;">
+
+
+<h1>Текущее задание:</h1>
+<h3 class="task">Найди фиского снайпера в лесу</h3>
+<h2>Количество жизней: <span class="life"></span></h2>
+
+
+
+
+<div class="win"><h1>Win</h1></div>
+<div class="loos"><h1>Loos</h1></div>
+
+<div class="img1 div" style="background-image: url(1.jpeg);background-size: cover;left: 350px; top: 170px;"></div>
+<div class="img2 div" style="background-image: url(2.jpg);background-size: cover;left: 750px; top: 170px;"></div>
+<div class="img3 div" style="background-image: url(3.jpg);background-size: cover;left: 1150px; top: 170px;"></div>
+<div class="img4 div" style="background-image: url(4.jpg);background-size: cover;left: 350px; top: 420px;"></div>
+<div class="img5 div" style="background-image: url(5.jpg);background-size: cover;left: 750px; top: 420px;"></div>
+<div class="img6 div" style="background-image: url(6.jpg);background-size: cover;left: 1150px; top: 420px;"></div>
+
+
+
+
+
+
+
+<script>
+	let img1 = document.querySelector(".img1");
+	let img2 = document.querySelector(".img2");
+	let img3 = document.querySelector(".img3");
+	let img4 = document.querySelector(".img4");
+	let img5 = document.querySelector(".img5");
+	let img6 = document.querySelector(".img6");
+	let task = document.querySelector(".task");
+	let loos = document.querySelector(".loos");
+	let win = document.querySelector(".win");
+
+	let div = document.querySelectorAll(".div");
+
+	let life = 3;
+	document.querySelector(".life").innerHTML = life;
+
+	function change(){
+		task.style.display = "block";
+
+		img1.style.background = "black";
+		img1.style.left = "1150px";
+		img1.style.top = "170px";
+
+		img2.style.background = "black";
+		img2.style.left = "350px";
+		img2.style.top = "170px";
+
+		img3.style.background = "black";
+		img3.style.left = "350px";
+		img3.style.top = "420px";
+
+		img4.style.background = "black";
+		img4.style.left = "750px";
+		img4.style.top = "170px";
+
+		img5.style.background = "black";
+		img5.style.left = "1150px";
+		img5.style.top = "420px";
+
+		img6.style.background = "black";
+		img6.style.left = "750px";
+		img6.style.top = "420px";
+	}
+
+
+	setTimeout(change, 5000)
+
+
+		img1.onclick = function(){
+			img1.style.backgroundImage = "url(1.jpeg)";
+			img1.style.backgroundSize = "100%";
+			img1.onclick = null;
+			life = life - 1;
+			document.querySelector(".life").innerHTML = life;
+			if (life==0) {
+				alert("Вас заметили, последнее слово?")
+				loos.style.display = "block";
+				for (let i=0;i<6;i=i+1 ){
+					div[i].style.display = "none";
+				}
+			}
+			if (life > 0) {alert("вроде бы видно дуло...а нет, это ветка");
+			}
+		}
+
+
+		img2.onclick = function(){
+			img2.style.backgroundImage = "url(2.jpg)";
+			img2.style.backgroundSize = "100%";
+			img2.onclick = null;
+			life = life - 1;
+			document.querySelector(".life").innerHTML = life;
+			if (life==0) {
+				alert("Вас заметили, последнее слово?")
+				loos.style.display = "block";
+				for (let i=0;i<6;i=i+1 ){
+					div[i].style.display = "none";
+				}
+			}
+			if (life > 0) {alert("вроде бы видно дуло...а нет, это ветка");
+			}
+		}
+		
+
+		img3.onclick = function(){
+			img3.style.backgroundImage = "url(3.jpg)";
+			img3.style.backgroundSize = "100%";
+			img3.onclick = null;
+			if (life > 0) {alert("Это он!Стреляй!");
+				for (let i=0;i<6;i=i+1 ){
+					div[i].style.display = "none";
+				}
+				win.style.display = "block"
+			}
+		}
+		
+
+		img4.onclick = function(){
+			img4.style.backgroundImage = "url(4.jpg)";
+			img4.style.backgroundSize = "100%";
+			img4.onclick = null;
+			life = life - 1;
+			document.querySelector(".life").innerHTML = life;
+			if (life==0) {
+				alert("Вас заметили, последнее слово?")
+				loos.style.display = "block";
+				for (let i=0;i<6;i=i+1 ){
+					div[i].style.display = "none";
+				}
+			}
+			if (life > 0) {alert("вроде бы видно дуло...а нет, это ветка");
+			}
+		}
+		
+
+		img5.onclick = function(){
+			img5.style.backgroundImage = "url(5.jpg)";
+			img5.style.backgroundSize = "100%";
+			img5.onclick = null;
+			life = life - 1;
+			document.querySelector(".life").innerHTML = life;
+			if (life==0) {
+				alert("Вас заметили, последнее слово?")
+				loos.style.display = "block";
+				for (let i=0;i<6;i=i+1 ){
+					div[i].style.display = "none";
+				}
+			}
+			if (life > 0) {alert("вроде бы видно дуло...а нет, это ветка");
+			}
+		}
+			
+		
+		img6.onclick = function(){
+			img6.style.backgroundImage = "url(6.jpg)";
+			img6.style.backgroundSize = "100%";
+			img6.onclick = null;
+			life = life - 1;
+			document.querySelector(".life").innerHTML = life;
+			if (life==0) {
+				alert("Вас заметили, последнее слово?");
+				loos.style.display = "block";
+				for (let i=0;i<6;i=i+1 ){
+					div[i].style.display = "none";
+				}
+			}
+			if (life > 0) {alert("вроде бы видно дуло...а нет, это ветка");
+				img6.style.display = "none";
+			}
+		}
+		
+
+</script>
+</body>
+</html>

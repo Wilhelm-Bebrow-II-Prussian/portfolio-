@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.info{
+		color: white;
+		background: red;
+		border-radius: 20px;
+		width: 285px;
+		padding-left: 20px;
+		 
+	}
+	.prop1{
+		width:5%;
+		height:10%;
+		position: absolute;
+	}
+	.prop2{
+		width: 3%;
+		height: 6%;
+		position: absolute;
+	}
+	.prop3{
+		width: 6%; 
+		height: 7%;
+		position: absolute;
+	}
+	.prop4{
+		width: 7%;
+		height: 14%;
+		position: absolute;
+	}
+	.prop5{
+		width: 2%; 
+		height: 3%;
+		position: absolute;
+	}
+</style>
+<body background="fon.jpg">
+
+<div>
+
+	<div class="info">
+
+	<h1>НАЙДИ:</h1>
+	<h2 class="text1">1) Самолет</h2>
+	<h2 class="text2">2) Танк №1</h2>
+	<h2 class="text3">3) Танк №2</h2>
+	<h2 class="text4">4) Танк №3</h2>
+	<h2 class="text5">5) ЗРК</h2>
+
+	<h2>ЦЕЛЕЙ НАЙДЕНО: <span class="score">0</span></h2>
+	</div>
+
+
+	<img src="prop1.png" class="prop1" style="left: 570px; top: 100px;">
+	<img src="prop2.png" class="prop2" style="left: 410px; top: 528px;">
+	<img src="prop3.png" class="prop3" style="left: 1030px; top: 530px;">
+	<img src="prop4.png" class="prop4" style="left: 1460px; top: 540px;">
+	<img src="prop5.png" class="prop5" style="left: 150px; top: 550px;">
+
+
+</div>
+
+
+<script type="text/javascript">
+	let score = 0;
+	document.querySelector(".score").innerHTML = score;
+
+
+
+
+
+
+
+
+	 document.querySelector(".prop1").onclick = function(){
+	 	document.querySelector(".text1").style.textDecoration = "line-through";
+	 	alert("Глаз-алмаз!")
+	 	document.querySelector(".prop1").style.display = "none";
+	 	score = score + 1;
+		document.querySelector(".score").innerHTML = score;
+	 }
+
+
+	  document.querySelector(".prop2").onclick = function(){
+	  	document.querySelector(".text2").style.textDecoration = "line-through";
+	 	alert("Глаз-алмаз!")
+	 	document.querySelector(".prop2").style.display = "none";
+	 	score = score + 1;
+		document.querySelector(".score").innerHTML = score;
+	 }
+
+
+	  document.querySelector(".prop3").onclick = function(){
+	  	document.querySelector(".text3").style.textDecoration = "line-through";
+	 	alert("Глаз-алмаз!")
+	 	document.querySelector(".prop3").style.display = "none";
+	 	score = score + 1;
+		document.querySelector(".score").innerHTML = score;
+	 }
+
+
+	  document.querySelector(".prop4").onclick = function(){
+	  	document.querySelector(".text4").style.textDecoration = "line-through";
+	 	alert("Глаз-алмаз!")
+	 	document.querySelector(".prop4").style.display = "none";
+	 	score = score + 1;
+		document.querySelector(".score").innerHTML = score;
+	 }
+
+
+	  document.querySelector(".prop5").onclick = function(){
+	  	document.querySelector(".text5").style.textDecoration = "line-through";
+	 	alert("Все цели были найдены и стерты с лица земли твоей командой!")
+	 	document.querySelector(".prop5").style.display = "none";
+	 	score = score + 1;
+		document.querySelector(".score").innerHTML = score;
+	 }
+
+	
+</script>
+</body>
+</html>
